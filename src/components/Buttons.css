@@ -1,0 +1,29 @@
+.button-block {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+button {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 25px -10px #010;
+}
+
+.yellowcard {
+  background: yellow;
+  color: yellow;
+  padding: 1px 5px;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+}
+.redcard {
+  background: red;
+  color: red;
+  padding: 1px 5px;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+}
