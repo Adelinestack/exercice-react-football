@@ -1,18 +1,20 @@
 import React from 'react';
 import './Buttons.css';
 
-function Buttons(props) {
+export default function Buttons({
+  onGoalClick,
+  onYellowCardClick,
+  onRedCardClick,
+}) {
   return (
     <div className="button-block">
-      <button onClick={props.onGoalClick}>GOAL!</button>
-      <button onClick={props.onYellowCardClick}>
+      <button onClick={onGoalClick}>GOAL!</button>
+      <button onClick={onYellowCardClick}>
         <span className="yellowcard">y</span>Yellow card
       </button>
-      <button onClick={props.onRedCardClick}>
+      <button onClick={onRedCardClick}>
         <span className="redcard">y</span>Red card
       </button>
     </div>
   );
 }
-
-export default Buttons;

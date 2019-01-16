@@ -1,27 +1,29 @@
 import React from 'react';
 import './Team.css';
 
-function Team(props) {
+export default function Team({
+  id,
+  teamName,
+  data: { score, yellowCard, redCard },
+}) {
   return (
     <div className="team-block">
-      <p>{props.teamName}</p>
-      <div className="score">{props.score}</div>
+      <p>{teamName}</p>
+      <div className="score">{score[id]}</div>
       <div>
         <img
           src="https://image.flaticon.com/icons/svg/1165/1165269.svg"
           width="30px"
         />
-        {props.yellowCard}
+        {yellowCard[id]}
       </div>
       <div>
         <img
           src="https://image.flaticon.com/icons/svg/451/451718.svg"
           width="30px"
         />
-        {props.redCard}
+        {redCard[id]}
       </div>
     </div>
   );
 }
-
-export default Team;

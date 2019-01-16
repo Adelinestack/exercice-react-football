@@ -3,52 +3,43 @@ import Team from './Team';
 import Buttons from './Buttons';
 import './App.css';
 
-class App extends Component {
+const DEFAULT_STATE = {
+  score: [0, 0],
+  yellowCard: [0, 0],
+  redCard: [0, 0],
+};
+
+const teamA = 0;
+const teamB = 1;
+
+export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      score: [0, 0],
-      yellowCard: [0, 0],
-      redCard: [0, 0],
-    };
+    this.state = DEFAULT_STATE;
   }
   onButtonClick(team, element) {
-    if (team === 0) {
+    if (team === teamA) {
       this.setState({
-        [element]: [this.state[element][0] + 1, this.state[element][1]],
+        [element]: [this.state[element][teamA] + 1, this.state[element][teamB]],
       });
     } else {
       this.setState({
-        [element]: [this.state[element][0], this.state[element][1] + 1],
+        [element]: [this.state[element][teamA], this.state[element][teamB] + 1],
       });
     }
   }
 
   onReset() {
-    this.setState({
-      score: [0, 0],
-      yellowCard: [0, 0],
-      redCard: [0, 0],
-    });
+    this.setState(DEFAULT_STATE);
   }
   render() {
     return (
       <div className="App">
         <div className="container">
-          <Team
-            teamName={'Team A'}
-            score={this.state.score[0]}
-            yellowCard={this.state.yellowCard[0]}
-            redCard={this.state.redCard[0]}
-          />
+          <Team id={0} teamName="Team A" data={this.state} />
           <div className="separation">:</div>
-          <Team
-            teamName={'Team B'}
-            score={this.state.score[1]}
-            yellowCard={this.state.yellowCard[1]}
-            redCard={this.state.redCard[1]}
-          />
+          <Team id={1} teamName="Team B" data={this.state} />
         </div>
         <div className="container">
           <Buttons
@@ -71,5 +62,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
