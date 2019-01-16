@@ -1,5 +1,9 @@
 .App {
   margin: 20px auto;
+  background: url('../img/Football_field_105x68.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 .container {
   display: flex;
